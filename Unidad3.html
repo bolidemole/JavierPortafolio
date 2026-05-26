@@ -8,149 +8,207 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <style>
+   <style>
+      * {
+          box-sizing: border-box;
+      }
 
-        * {
-            box-sizing: border-box;
-        }
+      body {
+          margin: 0;
+          padding: 0;
+          font-family: 'Montserrat', sans-serif;
+          color: #ffffff;
+          background-color: #0d1117;
+      }
 
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Montserrat', sans-serif;
-            color: #ffffff;
-            background-color: #0d1117;
-        }
+      /* fondo */
+      .hero-section {
+          position: relative;
+          width: 100%;
+          min-height: 100vh;
+          background: url('javi.png') center center / cover no-repeat;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-start;
+          padding-bottom: 50px;
+      }
 
-        .hero-section {
-            position: relative;
-            width: 100%;
-            min-height: 100vh;
-            background: url('javi.png') center center / cover no-repeat;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            padding-bottom: 50px;
-        }
+      /* Filtro obscuro */
+      .overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(13, 17, 23, 0.85); 
+          z-index: 1;
+      }
 
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(13, 17, 23, 0.85);
-            z-index: 1;
-        }
+      /* Contenedor para asegurar que los elementos queden por encima del overlay */
+      .content-wrapper {
+          position: relative;
+          z-index: 2;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+      }
 
-        .content-wrapper {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-        }
+      /* Encabezado Principal */
+      .header-container {
+          text-align: center;
+          margin-top: 10vh;
+          margin-bottom: 8vh;
+          width: 100%;
+          padding: 0 20px;
+      }
 
-        .header-container {
-            text-align: center;
-            margin-top: 10vh;
-            margin-bottom: 8vh;
-            width: 100%;
-            padding: 0 20px;
-        }
+      .header-container h1 {
+          font-size: 3.5rem;
+          font-weight: 600;
+          letter-spacing: 3px;
+          margin: 0 0 15px 0;
+          color: #ffffff;
+      }
 
-        .header-container h1 {
-            font-size: 3.5rem;
-            font-weight: 600;
-            letter-spacing: 3px;
-        }
+      .header-container .subtitle {
+          font-size: 1.4rem;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          margin: 5px 0 20px 0;
+          color: #dddddd;
+      }
 
-        .subtitle {
-            font-size: 1.4rem;
-            letter-spacing: 2px;
-            color: #dddddd;
-        }
+      /* Texto de introducción */
+      .intro-text {
+          font-size: 1.05rem; 
+          line-height: 1.6;   
+          text-align: justify; 
+          max-width: 700px;    
+          margin: 0 auto;     
+          color: #e1e7ed;     
+      }
 
-        .intro-text {
-            font-size: 1.05rem;
-            line-height: 1.6;
-            text-align: justify;
-            max-width: 700px;
-            margin: 0 auto;
-            color: #e1e7ed;
-        }
+      /* Contenedor de las Evidencias (Engranajes) */
+      .evidencias-container {
+          display: flex;
+          justify-content: center;
+          gap: 60px;
+          width: 100%;
+          max-width: 1000px;
+          padding: 20px;
+          flex-wrap: wrap;
+      }
 
-        .evidencias-container {
-            display: flex;
-            justify-content: center;
-            gap: 60px;
-            flex-wrap: wrap;
-            padding: 20px;
-        }
+      /* Botón/Enlace de Evidencia Individual */
+      .evidencia-btn {
+          background: none;
+          border: none;
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          cursor: pointer;
+          padding: 12px 24px;
+          border-radius: 8px;
+          transition: transform 0.2s ease, background-color 0.2s ease;
+          text-decoration: none;
+      }
 
-        .evidencia-btn {
-            background: none;
-            border: none;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            cursor: pointer;
-            padding: 12px 24px;
-            border-radius: 8px;
-            transition: 0.2s;
-        }
+      .evidencia-btn:hover {
+          transform: scale(1.05);
+          background-color: rgba(255, 255, 255, 0.05);
+      }
 
-        .evidencia-btn:hover {
-            transform: scale(1.05);
-            background-color: rgba(255,255,255,0.05);
-        }
+      /* Icono de Engranaje SVG */
+      .gear-icon {
+          width: 70px;
+          height: 70px;
+          flex-shrink: 0; 
+          display: block;
+          fill: #e08739;
+          transition: transform 0.8s ease;
+      }
 
-        .gear-icon {
-            width: 70px;
-            height: 70px;
-            fill: #e08739;
-            transition: transform 0.8s ease;
-        }
+      .evidencia-btn:hover .gear-icon {
+          transform: rotate(90deg);
+      }
 
-        .evidencia-btn:hover .gear-icon {
-            transform: rotate(90deg);
-        }
+      /* Texto al lado del engranaje */
+      .evidencia-texto {
+          color: #ffffff;
+          font-size: 1.5rem;
+          font-weight: 700;
+          letter-spacing: 1px;
+          text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+      }
 
-        .evidencia-texto {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
+      /* Visor de PDF */
+      .pdf-viewer-container {
+          display: none;
+          width: 90%;
+          max-width: 950px;
+          background-color: #161b22;
+          border: 1px solid #30363d;
+          border-radius: 12px;
+          padding: 15px;
+          margin-top: 50px;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      }
 
-        .pdf-viewer-container {
-            display: none;
-            width: 90%;
-            max-width: 950px;
-            background-color: #161b22;
-            border-radius: 12px;
-            padding: 15px;
-            margin-top: 50px;
-        }
+      .pdf-viewer-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 15px;
+          padding-bottom: 10px;
+          border-bottom: 1px solid #30363d;
+      }
 
-        iframe {
-            width: 100%;
-            height: 650px;
-            border: none;
-            border-radius: 6px;
-            background-color: white;
-        }
+      .pdf-viewer-title {
+          color: #e08739;
+          font-weight: 600;
+          margin: 0;
+          font-size: 1.2rem;
+      }
 
-        .btn-back {
-            margin-top: 60px;
-            padding: 12px 28px;
-            background-color: rgba(33,38,45,0.8);
-            color: white;
-            border-radius: 6px;
-            text-decoration: none;
-        }
+      .btn-close {
+          background: none;
+          border: none;
+          color: #8b949e;
+          font-size: 2rem;
+          cursor: pointer;
+          line-height: 1;
+      }
+      .btn-close:hover { color: #f85149; }
 
-    </style>
+      iframe {
+          width: 100%;
+          height: 650px;
+          border: none;
+          border-radius: 6px;
+          background-color: #ffffff;
+      }
+
+      /* Botón Volver al Índice */
+      .btn-back {
+          margin-top: 60px;
+          padding: 12px 28px;
+          background-color: rgba(33, 38, 45, 0.8);
+          color: #ffffff;
+          border: 1px solid #444c56;
+          border-radius: 6px;
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 0.95rem;
+          transition: 0.3s;
+          backdrop-filter: blur(5px);
+      }
+      .btn-back:hover { 
+          background-color: #30363d;
+          border-color: #e08739;
+      }
+  </style>
 </head>
 
 <body>
