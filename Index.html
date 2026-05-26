@@ -1,0 +1,95 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Portafolio de Evidencias";
+    // Desactivamos el Layout general si quieres que use únicamente tu fondo de pantalla extendido
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - Javier</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+
+    <header class="hero-section">
+        <div class="overlay"></div>
+        <div class="hero-container">
+            <h1 class="anim-left main-title">PORTAFOLIO DE EVIDENCIAS</h1>
+            
+            <div class="anim-left info-block">
+                <p class="label">MATERIA:</p>
+                <p class="value">ADMINISTRACIÓN DEL MANTENIMIENTO</p>
+            </div>
+            
+            <div class="anim-left info-block">
+                <p class="label">MAESTRO:</p>
+                <p class="value">MARTIN HILARON CADENA TECAYEHUATL</p>
+            </div>
+            
+            <div class="anim-left info-block student-row">
+                <p class="student-name">JAVIER VASQUEZ VICTORIA</p>
+                <p class="student-id">C22221067</p>
+            </div>
+        </div>
+    </header>
+
+    <section class="index-section">
+        <h2 class="index-title">ÍNDICE</h2>
+        
+        <div class="gears-grid">
+            <a href="/Unidad1" class="gear-card">
+                <div class="gear-wrapper">
+                    <i class="fa-solid fa-gear gear-icon"></i>
+                    <span class="gear-text">• Unidad 1</span>
+                </div>
+            </a>
+
+            <a href="/Unidad2" class="gear-card">
+                <div class="gear-wrapper">
+                    <i class="fa-solid fa-gear gear-icon"></i>
+                    <span class="gear-text">• Unidad 2</span>
+                </div>
+            </a>
+
+            <a href="/Unidad3" class="gear-card">
+                <div class="gear-wrapper">
+                    <i class="fa-solid fa-gear gear-icon"></i>
+                    <span class="gear-text">• Unidad 3</span>
+                </div>
+            </a>
+
+            <a href="/Unidad4" class="gear-card">
+                <div class="gear-wrapper">
+                    <i class="fa-solid fa-gear gear-icon"></i>
+                    <span class="gear-text">• Unidad 4</span>
+                </div>
+            </a>
+
+            <a href="/Unidad5" class="gear-card">
+                <div class="gear-wrapper">
+                    <i class="fa-solid fa-gear gear-icon"></i>
+                    <span class="gear-text">• Unidad 5</span>
+                </div>
+            </a>
+
+            <a href="/Conclusion" class="gear-card">
+                <div class="gear-wrapper">
+                    <i class="fa-solid fa-gear gear-icon"></i>
+                    <span class="gear-text">• Conclusion</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+</body>
+</html>

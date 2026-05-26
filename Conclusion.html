@@ -1,0 +1,118 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Conclusión General";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - Javier</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    <style>
+
+        .conclusion-page {
+            padding: 80px 20px;
+            background-color: #161b22;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .content-card {
+            background-color: #21262d;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin-bottom: 40px;
+        }
+
+        .text-p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #c9d1d9;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+
+        /* Botón de regreso estilo tus tarjetas del índice */
+        .back-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .back-card {
+            text-decoration: none;
+            color: inherit;
+            background-color: #21262d;
+            padding: 15px 35px;
+            border-radius: 12px;
+            border: 1px solid #30363d;
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .back-card:hover {
+            transform: translateY(-5px);
+            background-color: #30363d;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .back-icon {
+            font-size: 1.2rem;
+            color: #8b949e;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .back-card:hover .back-icon {
+            transform: translateX(-5px);
+            color: #f0883e;
+        }
+
+        .back-text {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <section class="conclusion-page">
+        <h2 class="index-title anim-left">CONCLUSIÓN GENERAL</h2>
+        
+        <div class="content-card anim-left" style="animation-delay: 0.3s;">
+            <p class="text-p">
+                Estudiar la materia de Mantenimiento Industrial fue una experiencia muy completa que me dio una visión amplia de todo lo que implica esta área dentro del mundo industrial. A través de cada unidad fui construyendo un conocimiento que va desde lo más básico, como entender qué es el mantenimiento y para qué sirve, hasta aspectos más complejos como su administración y gestión estratégica. 
+            </p>
+            <p class="text-p">
+                Me di cuenta de que el mantenimiento es una de las áreas más importantes dentro de cualquier empresa, ya que sin equipos funcionando correctamente no hay producción, y sin producción no hay negocio. Los conocimientos que adquirí en esta materia me preparan para desempeñarme con responsabilidad, seguridad y criterio técnico en mi vida profesional, y me hacen valorar que un buen mantenimiento no representa un gasto, sino una inversión que protege los activos de la empresa y garantiza su continuidad operativa.
+            </p>
+        </div>
+
+        <div class="back-container anim-left" style="animation-delay: 0.6s;">
+            <a asp-page="/Index" class="back-card">
+                <i class="fa-solid fa-arrow-left back-icon"></i>
+                <span class="back-text">Volver al Inicio</span>
+            </a>
+        </div>
+    </section>
+
+</body>
+</html>

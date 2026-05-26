@@ -1,0 +1,280 @@
+﻿@page
+@model PortafolioMantenimiento.Pages.Unidad4Model
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidad 4 - Evidencias</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            color: #ffffff;
+            background-color: #0d1117;
+        }
+
+        /* fondo */
+        .hero-section {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            background: url('../images/javi.png') center center / cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-bottom: 50px;
+        }
+
+        /* Filtro obscuro */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(13, 17, 23, 0.85); 
+            z-index: 1;
+        }
+
+        /* Contenedor para asegurar que los elementos queden por encima del overlay */
+        .content-wrapper {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* Encabezado Principal */
+        .header-container {
+            text-align: center;
+            margin-top: 10vh;
+            margin-bottom: 8vh;
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .header-container h1 {
+            font-size: 3.5rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            margin: 0 0 15px 0;
+            color: #ffffff;
+        }
+
+        .header-container .subtitle {
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin: 5px 0 20px 0;
+            color: #dddddd;
+        }
+
+        /* Texto de introducción */
+        .intro-text {
+            font-size: 1.05rem; 
+            line-height: 1.6;   
+            text-align: justify; 
+            max-width: 700px;    
+            margin: 0 auto;     
+            color: #e1e7ed;     
+        }
+
+        .evidencias-container {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            width: 100%;
+            max-width: 1000px;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Botón/Enlace de Evidencia Individual */
+        .evidencia-btn {
+            background: none;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            cursor: pointer;
+            padding: 12px 24px;
+            border-radius: 8px;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            text-decoration: none;
+        }
+
+        .evidencia-btn:hover {
+            transform: scale(1.05);
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Icono de Engranaje SVG */
+        .gear-icon {
+            width: 70px;
+            height: 70px;
+            flex-shrink: 0; 
+            display: block;
+            fill: #e08739;
+            transition: transform 0.8s ease;
+        }
+
+        .evidencia-btn:hover .gear-icon {
+            transform: rotate(90deg);
+        }
+
+        /* Texto al lado del engranaje */
+        .evidencia-texto {
+            color: #ffffff;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Visor de PDF */
+        .pdf-viewer-container {
+            display: none;
+            width: 90%;
+            max-width: 950px;
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }
+
+        .pdf-viewer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .pdf-viewer-title {
+            color: #e08739;
+            font-weight: 600;
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        .btn-close {
+            background: none;
+            border: none;
+            color: #8b949e;
+            font-size: 2rem;
+            cursor: pointer;
+            line-height: 1;
+        }
+        .btn-close:hover { color: #f85149; }
+
+        iframe {
+            width: 100%;
+            height: 650px;
+            border: none;
+            border-radius: 6px;
+            background-color: #ffffff;
+        }
+
+        /* Botón Volver al Índice */
+        .btn-back {
+            margin-top: 60px;
+            padding: 12px 28px;
+            background-color: rgba(33, 38, 45, 0.8);
+            color: #ffffff;
+            border: 1px solid #444c56;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: 0.3s;
+            backdrop-filter: blur(5px);
+        }
+        .btn-back:hover { 
+            background-color: #30363d;
+            border-color: #e08739;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero-section">
+        <div class="overlay"></div>
+        
+        <div class="content-wrapper">
+            <div class="header-container">
+                <h1>UNIDAD 4</h1>
+                <p class="subtitle">Protección y Lubricación de Superficies</p>
+                <p class="intro-text">En esta unidad estudié uno de los aspectos más importantes para prolongar la vida útil de los equipos: la lubricación y protección de superficies. Conocí los principios básicos de la tribología, los distintos tipos de lubricantes, sus características y cómo seleccionar el más adecuado según las condiciones de operación. También revisamos los diferentes sistemas y métodos de aplicación de lubricantes, así como los recubrimientos y tratamientos superficiales que se utilizan para proteger piezas y componentes del desgaste, la corrosión y otros factores que reducen su durabilidad.</p>
+            </div>
+
+            <div class="cards-container" style="display: contents;">
+                <div class="evidencias-container">
+                    
+                    <button class="evidencia-btn" onclick="verPdf('@Url.Content("~/pdfs/T4_Ev10.pdf")', 'T4 Ev10: Reporte de Práctica')">
+                        <svg class="gear-icon" viewBox="0 0 24 24">
+                            <path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l-.38 2.65c-.03.24.17.42.42.42h4c.25 0 .46-.18.49-.42l-.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2 3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/>
+                        </svg>
+                        <span class="evidencia-texto">T4 Ev10</span>
+                    </button>
+
+                    <button class="evidencia-btn" onclick="verPdf('@Url.Content("~/pdfs/T4_Ev11.pdf")', 'T4 Ev11: Evaluación Diagnóstica')">
+                        <svg class="gear-icon" viewBox="0 0 24 24">
+                            <path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l-.38 2.65c-.03.24.17.42.42.42h4c.25 0 .46-.18.49-.42l-.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2 3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/>
+                        </svg>
+                        <span class="evidencia-texto">T4 Ev11</span>
+                    </button>
+
+                </div>
+            </div>
+
+            <div id="pdfContainer" class="pdf-viewer-container">
+                <div class="pdf-viewer-header">
+                    <h3 id="pdfTitle" class="pdf-viewer-title">Visualizando Documento</h3>
+                    <button class="btn-close" onclick="cerrarPdf()">×</button>
+                </div>
+                <iframe id="pdfIframe" src=""></iframe>
+            </div>
+
+            <a asp-page="/Index" class="btn-back">← Volver al Índice</a>
+        </div>
+    </div>
+
+    <script>
+        function verPdf(rutaPdf, tituloDocumento) {
+            const contenedor = document.getElementById('pdfContainer');
+            const iframe = document.getElementById('pdfIframe');
+            const titulo = document.getElementById('pdfTitle');
+
+            iframe.src = rutaPdf;
+            titulo.textContent = tituloDocumento;
+
+            contenedor.style.display = 'block';
+            contenedor.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function cerrarPdf() {
+            const contenedor = document.getElementById('pdfContainer');
+            const iframe = document.getElementById('pdfIframe');
+            
+            contenedor.style.display = 'none';
+            iframe.src = '';
+        }
+    </script>
+</body>
+</html>
