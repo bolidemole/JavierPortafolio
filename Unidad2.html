@@ -1,16 +1,14 @@
-﻿@page
-@model PortafolioMantenimiento.Pages.Unidad2Model
-@{
-    Layout = null;
-}
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unidad 2 - Evidencias</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
+
         * {
             box-sizing: border-box;
         }
@@ -28,7 +26,7 @@
             position: relative;
             width: 100%;
             min-height: 100vh;
-            background: url('../images/javi.png') center center / cover no-repeat;
+            background: url('javi.png') center center / cover no-repeat;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -43,11 +41,11 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(13, 17, 23, 0.85); 
+            background: rgba(13, 17, 23, 0.85);
             z-index: 1;
         }
 
-        /* Contenedor para asegurar que los elementos queden por encima del overlay */
+        /* Contenedor */
         .content-wrapper {
             position: relative;
             z-index: 2;
@@ -57,7 +55,7 @@
             width: 100%;
         }
 
-        /* Encabezado Principal */
+        /* Encabezado */
         .header-container {
             text-align: center;
             margin-top: 10vh;
@@ -82,17 +80,17 @@
             color: #dddddd;
         }
 
-        /* Texto de introducción */
+        /* Texto */
         .intro-text {
-            font-size: 1.05rem; 
-            line-height: 1.6;   
-            text-align: justify; 
-            max-width: 700px;    
-            margin: 0 auto;     
-            color: #e1e7ed;     
+            font-size: 1.05rem;
+            line-height: 1.6;
+            text-align: justify;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #e1e7ed;
         }
 
-        /* Contenedor de las Evidencias (Engranajes) */
+        /* Evidencias */
         .evidencias-container {
             display: flex;
             justify-content: center;
@@ -103,7 +101,7 @@
             flex-wrap: wrap;
         }
 
-        /* Botón/Enlace de Evidencia Individual */
+        /* Botones */
         .evidencia-btn {
             background: none;
             border: none;
@@ -122,11 +120,11 @@
             background-color: rgba(255, 255, 255, 0.05);
         }
 
-        /* Icono de Engranaje SVG corregido para que no se deforme */
+        /* Engranaje */
         .gear-icon {
             width: 70px;
             height: 70px;
-            flex-shrink: 0; 
+            flex-shrink: 0;
             display: block;
             fill: #e08739;
             transition: transform 0.8s ease;
@@ -136,7 +134,7 @@
             transform: rotate(90deg);
         }
 
-        /* Texto al lado del engranaje */
+        /* Texto engranaje */
         .evidencia-texto {
             color: #ffffff;
             font-size: 1.5rem;
@@ -145,7 +143,7 @@
             text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
         }
 
-        /* Visor de PDF */
+        /* PDF */
         .pdf-viewer-container {
             display: none;
             width: 90%;
@@ -182,7 +180,10 @@
             cursor: pointer;
             line-height: 1;
         }
-        .btn-close:hover { color: #f85149; }
+
+        .btn-close:hover {
+            color: #f85149;
+        }
 
         iframe {
             width: 100%;
@@ -192,7 +193,7 @@
             background-color: #ffffff;
         }
 
-        /* Botón Volver al Índice */
+        /* Botón volver */
         .btn-back {
             margin-top: 60px;
             padding: 12px 28px;
@@ -206,80 +207,141 @@
             transition: 0.3s;
             backdrop-filter: blur(5px);
         }
-        .btn-back:hover { 
+
+        .btn-back:hover {
             background-color: #30363d;
             border-color: #e08739;
         }
+
     </style>
 </head>
+
 <body>
 
     <div class="hero-section">
+
         <div class="overlay"></div>
-        
+
         <div class="content-wrapper">
+
             <div class="header-container">
+
                 <h1>UNIDAD 2</h1>
-                <p class="subtitle">Planeación y Organización del Mantenimiento</p>
-                <p class="intro-text">En esta unidad aprendí que detrás de cada intervención de mantenimiento existe una serie de pasos y protocolos que deben seguirse de manera ordenada. Estudiamos cómo planificar, ejecutar y documentar correctamente las actividades de mantenimiento, siguiendo normas de seguridad industrial. Comprendí la importancia de trabajar con procedimientos estandarizados, ya que esto no solo mejora la calidad del trabajo, sino que también protege la integridad del técnico y de los equipos que se intervienen.</p>
+
+                <p class="subtitle">
+                    Planeación y Organización del Mantenimiento
+                </p>
+
+                <p class="intro-text">
+                    En esta unidad aprendí que detrás de cada intervención de mantenimiento existe una serie de pasos y protocolos que deben seguirse de manera ordenada.
+                </p>
+
             </div>
 
             <div class="evidencias-container">
-                
-                <button class="v-btn evidencia-btn" onclick="verPdf('/pdfs/T2_EV4_Cuadros_Didacticos.pdf', 'T2 EV4: Cuadros Didácticos')">
+
+                <!-- PDF -->
+                <button class="evidencia-btn"
+                        onclick="verPdf('T2_EV4_Cuadros_Didacticos.pdf', 'T2 EV4: Cuadros Didácticos')">
+
                     <svg class="gear-icon" viewBox="0 0 24 24">
-                        <path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l-.38 2.65c-.03.24.17.42.42.42h4c.25 0 .46-.18.49-.42l-.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2 3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/>
+                        <path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l-.38 2.65c-.03.24.17.42.42.42h4c.25 0 .46-.18.49-.42l-.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65z"/>
                     </svg>
+
                     <span class="evidencia-texto">T2 EV4</span>
+
                 </button>
 
-                <a class="evidencia-btn" href="/pdfs/Simulador_Mant_Ind.xlsx" download="Simulador_Mant_Ind.xlsx">
-                    <svg class="gear-icon" viewBox="0 0 24 24" style="fill: #27ae60;"> 
-                        <path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l-.38 2.65c-.03.24.17.42.42.42h4c.25 0 .46-.18.49-.42l-.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2 3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/>
+                <!-- XLSX -->
+                <a class="evidencia-btn"
+                   href="Simulador_Mant_Ind.xlsx"
+                   download="Simulador_Mant_Ind.xlsx">
+
+                    <svg class="gear-icon" viewBox="0 0 24 24" style="fill: #27ae60;">
+                        <path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l-.38 2.65c-.03.24.17.42.42.42h4c.25 0 .46-.18.49-.42l-.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65z"/>
                     </svg>
-                    <span class="evidencia-texto">Simulador XLSX</span>
+
+                    <span class="evidencia-texto">
+                        Simulador XLSX
+                    </span>
+
                 </a>
 
             </div>
 
+            <!-- VISOR PDF -->
             <div id="pdfContainer" class="pdf-viewer-container">
+
                 <div class="pdf-viewer-header">
-                    <h3 id="pdfTitle" class="pdf-viewer-title">Visualizando Documento</h3>
-                    <button class="btn-close" onclick="cerrarPdf()">×</button>
+
+                    <h3 id="pdfTitle" class="pdf-viewer-title">
+                        Visualizando Documento
+                    </h3>
+
+                    <button class="btn-close" onclick="cerrarPdf()">
+                        ×
+                    </button>
+
                 </div>
+
                 <iframe id="pdfIframe" src=""></iframe>
+
             </div>
 
-            <a asp-page="/Index" class="btn-back">← Volver al Índice</a>
+            <!-- BOTON VOLVER -->
+            <a href="index.html" class="btn-back">
+                ← Volver al Índice
+            </a>
+
         </div>
+
     </div>
 
     <script>
-        function verPdf(rutaPdf, tituloDocumento) {
-            const contenedor = document.getElementById('pdfContainer');
-            const iframe = document.getElementById('pdfIframe');
-            const titulo = document.getElementById('pdfTitle');
 
-            // Limpieza previa del iframe para forzar recarga limpia del buffer
+        function verPdf(rutaPdf, tituloDocumento) {
+
+            const contenedor =
+                document.getElementById('pdfContainer');
+
+            const iframe =
+                document.getElementById('pdfIframe');
+
+            const titulo =
+                document.getElementById('pdfTitle');
+
             iframe.removeAttribute('src');
-            
+
             titulo.textContent = tituloDocumento;
+
             contenedor.style.display = 'block';
-            
-            // Asignación con un delay mínimo para evitar conflictos de render de hilos en JS
+
             setTimeout(() => {
+
                 iframe.src = rutaPdf;
-                contenedor.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+                contenedor.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+
             }, 50);
         }
 
         function cerrarPdf() {
-            const contenedor = document.getElementById('pdfContainer');
-            const iframe = document.getElementById('pdfIframe');
-            
+
+            const contenedor =
+                document.getElementById('pdfContainer');
+
+            const iframe =
+                document.getElementById('pdfIframe');
+
             contenedor.style.display = 'none';
+
             iframe.src = '';
         }
+
     </script>
+
 </body>
 </html>
